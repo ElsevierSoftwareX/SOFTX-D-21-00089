@@ -1,0 +1,13 @@
+<?
+if ~isfield(keys,'domainIds')
+  keys.domainIds = 1;
+end
+?>
+PostProcess { 
+  DensityIntegration { 
+    DomainIds = %(domainIds)e
+    FieldBagPath = "%(field)s" 
+    OutputFileName = "%(oPath)s.jcm" 
+    OutputQuantity = ElectricFieldEnergy
+  }
+}

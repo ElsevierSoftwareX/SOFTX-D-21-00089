@@ -1,0 +1,11 @@
+SourceBag {
+  Source {
+    ElectricCurrentDensity {
+      PointSource {
+        Omega=%(omega)e
+        Position=%(position)e
+        Strength=%(strength)e
+      }
+    }
+  }
+}

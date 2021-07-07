@@ -1,0 +1,24 @@
+Material {
+  DomainId = 1
+  Name = "Air"
+  RelPermeability = 1.0
+  RelPermittivity = 1.0
+}
+Material { 
+  Name = "Diamond"
+  DomainId = 2
+  RelPermeability = 1.0
+  RelPermittivity {
+    LorentzPole {
+      Damping = 0
+      ResonanceFrequency = 1.07637232417649e+16
+      Shift = 0.3306
+    }
+    LorentzPole {
+      Damping = 0
+      ResonanceFrequency = 1.77702978048005e+16
+      Shift = 4.3356
+    }
+    Constant = 1
+  }
+}

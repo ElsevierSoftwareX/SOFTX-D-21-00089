@@ -1,0 +1,31 @@
+<?
+if ~isfield(keys,'domainIds')
+  keys.domainIds = 1;
+end
+?>
+PostProcess { 
+  DensityIntegration { 
+    DomainIds = %(domainIds)e
+    FieldBagPath = "%(field)s"
+    OutputFileName = "%(oPath)s"
+    Python { 
+      IntegrationOrder = %(integrationOrder)e
+      IntegralName = "ElectricFieldEnergy"
+      Expression = "value = 0.25*dot(E.T,D.conj())"
+      Parameter { 
+        Name = "E" 
+        FieldValue { 
+          FieldBagPath = "%(field)s" 
+          Quantity = "ElectricFieldStrength" 
+        }
+      }
+      Parameter { 
+        Name = "D" 
+        FieldValue { 
+          FieldBagPath = "%(circfield)s" 
+          Quantity = "ElectricFluxDensity" 
+        }
+      }
+    }
+  }
+}

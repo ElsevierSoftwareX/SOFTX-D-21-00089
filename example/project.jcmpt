@@ -1,0 +1,17 @@
+Project {
+  InfoLevel = 1
+  Electromagnetics {
+    TimeHarmonic {
+      Scattering {
+        PML {
+          %(pml)s
+        }
+        FieldComponents = Electric
+        Accuracy {
+          Precision = 1e-5
+          FiniteElementDegree = %(finiteElementDegree)e
+        }
+      }
+    }
+  }
+}

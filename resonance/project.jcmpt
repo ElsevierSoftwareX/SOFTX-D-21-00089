@@ -1,0 +1,22 @@
+Project {
+  InfoLevel = 3
+  Electromagnetics {
+    TimeHarmonic {
+      ResonanceMode {
+        FieldComponents = Electric
+        BlochVector=[0 0 1]
+        Accuracy {
+          Precision = 1e-5
+          FiniteElementDegree = %(finiteElementDegree)e
+        }
+        SelectionCriterion {          
+          NearGuess {
+            Guess = %(guess)e
+            NumberEigenvalues = %(numberEigenvalues)e
+          }
+        }
+      }
+    }
+  }
+}
+

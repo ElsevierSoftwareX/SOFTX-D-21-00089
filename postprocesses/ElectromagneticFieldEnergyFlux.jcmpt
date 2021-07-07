@@ -1,0 +1,26 @@
+PostProcess { 
+  FluxIntegration { 
+    InterfaceType = ExteriorDomain
+    FieldBagPath = "%(field)s"
+    OutputFileName = "%(oPath)s"
+    Python { 
+      IntegrationOrder = %(integrationOrder)e
+      IntegralName = "ElectromagneticFieldEnergyFlux"
+      Expression = "value = 0.5*cross(E,conj(H))"
+      Parameter { 
+        Name = "E" 
+        FieldValue { 
+          FieldBagPath = "%(field)s" 
+          Quantity = "ElectricFieldStrength" 
+        }
+      }
+      Parameter { 
+        Name = "H" 
+        FieldValue { 
+          FieldBagPath = "%(circfield)s" 
+          Quantity = "MagneticFieldStrength" 
+        }
+      }
+    }
+  }
+}

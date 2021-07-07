@@ -1,0 +1,37 @@
+Layout2D {
+  Name = "DiamondNanodisc"
+  UnitOfLength = 1e-9
+  CoordinateSystem = Cylindrical 
+  MeshOptions {
+    MaximumSideLength = 80
+  }
+  Objects {
+    Parallelogram {
+      Name = "ComputationalDomain"
+      DomainId = 1
+      Priority = ComputationalDomain 
+      BoundingBox {
+        Offset = [0 400 300 300]
+      }
+      Boundary {
+        Class = Transparent 
+      }
+    }
+    Parallelogram {
+      Name = "DiamondDisk"
+      Width = 200
+      Height = 160
+      InnerAngle = 90
+      DomainId = 2
+      Priority = 1
+      Port = 1
+      MeshOptions {
+        MaximumSideLength = 25
+        CornerRefinement {
+          Point = [2,3]
+          MaximumSideLength = 0.25
+        }
+      }
+    }
+  }
+}

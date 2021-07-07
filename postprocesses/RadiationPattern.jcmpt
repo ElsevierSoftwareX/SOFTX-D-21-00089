@@ -1,0 +1,29 @@
+<?
+if ~isfield(keys,'radius')
+keys.radius = 1e-5;
+end
+?>
+PostProcess {
+  FarField {
+    FieldBagPath = "%(field)s"
+    OutputFileName = "first%(oPath)s"
+    Rotation = X:Z:-Y
+    Polar {
+      Radius = %(radius)e
+      GridPointsTheta = %(gridPointsTheta)e
+      GridPointsPhi = %(gridPointsPhi)e
+    }
+  }
+}
+PostProcess {
+  FarField {
+    FieldBagPath = "%(circfield)s"
+    OutputFileName = "second%(oPath)s"
+    Rotation = X:Z:-Y
+    Polar {
+      Radius = %(radius)e
+      GridPointsTheta = %(gridPointsTheta)e
+      GridPointsPhi = %(gridPointsPhi)e
+    }
+  }
+}

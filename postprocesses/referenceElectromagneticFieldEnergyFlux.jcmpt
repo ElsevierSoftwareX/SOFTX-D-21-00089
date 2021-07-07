@@ -1,0 +1,9 @@
+PostProcess {
+  FluxIntegration {
+    InterfaceType = ExteriorDomain
+    FieldBagPath = "%(field)s"
+    OutputFileName = "%(oPath)s"
+    OutputQuantity = ElectromagneticFieldEnergyFlux
+  }
+}
+

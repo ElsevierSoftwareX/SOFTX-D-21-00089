@@ -1,0 +1,12 @@
+PostProcess {
+  FarField {
+    FieldBagPath = "%(field)s"
+    OutputFileName = "first%(oPath)s"
+    Rotation = X:Z:-Y
+    Polar {
+      Radius = %(radius)e
+      GridPointsTheta = %(points_the)e
+      GridPointsPhi = %(points_phi)e
+    }
+  }
+}
